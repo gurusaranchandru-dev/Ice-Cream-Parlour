@@ -1,0 +1,9 @@
+program explanation
+
+It's a console-based Java application backed by MySQL.
+Main shows the top-level menu; depending on whether the user picks Customer or Admin, control passes to that side's classes.
+Customer actions read from menu_items (view/search) or write to orders/order_items/bills (ordering).
+Admin actions, after login, write to menu_items/menu_categories (add/update/delete).
+Every class talks to the database through the single DBConnecton class, 
+so there's one place that owns the connection logic — everything else just runs queries through it. 
+That's the whole system: a thin Java layer over a relational schema that models menu → order → bill as a chain of related tables.
